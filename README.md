@@ -1,4 +1,4 @@
-# AI Internship Assignment
+# Full Stack Internship Assignment
 
 This repository contains my solution for the AI Internship Technical Assignment.
 
