@@ -31,14 +31,12 @@ jobs:
         run: flake8 part3
 
       - name: Run Tests
-  working-directory: part3
-  run: pytest
+        working-directory: part3
+        run: pytest
 
   deploy:
     needs: test
-
     if: github.ref == 'refs/heads/main'
-
     runs-on: ubuntu-latest
 
     steps:
