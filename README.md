@@ -1,53 +1,67 @@
 # Full Stack Internship Assignment
 
-This repository contains my solution for the AI Internship Technical Assignment.
+This repository contains my solution for the Full Stack Internship Technical Assignment.
 
 ## Part 1 – Token Optimization
 
-Implemented two optimization strategies:
+Implemented two strategies to reduce token usage in an AI agent pipeline:
 
-- Context Compression
-- Retrieval-Augmented Prompting (RAG)
+- Prompt compression by removing redundant context.
+- Context filtering / retrieval so only relevant information is sent to the model.
 
-These reduce token usage from approximately **100K tokens** to **28K tokens**, lowering API cost and improving response time while maintaining output quality.
+Result:
+
+| Metric       | Before  | After  |
+| ------------ | ------- | ------ |
+| Input Tokens | 100,000 | 38,000 |
+| Reduction    | -       | 62%    |
+
+Quality remained almost unchanged while reducing cost and improving response speed.
 
 ---
 
 ## Part 2 – Debugging
 
-Documented a structured debugging workflow for an intermittent multi-agent pipeline.
+Debugged an unreliable multi-agent workflow by:
 
-The process includes:
-
-- Reproducing failures
-- Log analysis
-- Component isolation
-- JSON validation
-- Timeout investigation
-- Root cause analysis
+- Checking logs for each pipeline step.
+- Reproducing intermittent failures.
+- Validating API responses.
+- Identifying timeout, malformed output and incorrect data issues.
+- Adding logging, retries and output validation.
 
 ---
 
 ## Part 3 – CI/CD
 
-Created a GitHub Actions workflow that:
+Implemented a GitHub Actions pipeline that:
 
-- Runs linting using flake8
-- Runs tests using pytest
-- Deploys to a staging environment after successful validation
+- Runs flake8 linting.
+- Runs pytest automatically.
+- Deploys to staging after successful tests on the main branch.
 
-The repository also includes a deployment strategy, secure secret management approach, and production rollback plan.
+Secrets should be stored using GitHub Secrets instead of hardcoding API keys.
+
+If production deployment fails, rollback to the previous stable release immediately while investigating logs.
+
+---
+
+## Tech Stack
+
+- Python
+- Git
+- GitHub Actions
+- Pytest
+- Flake8
 
 ---
 
 ## Repository Structure
 
 ```
-AI-Intern-Assignment/
-│
-├── part1/
-├── part2/
-├── part3/
-├── .github/workflows/
-└── README.md
+.github/workflows/
+part1/
+part2/
+part3/
+README.md
 ```
