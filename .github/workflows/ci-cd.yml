@@ -31,7 +31,8 @@ jobs:
         run: flake8 part3
 
       - name: Run Tests
-        run: pytest
+  working-directory: part3
+  run: pytest
 
   deploy:
     needs: test
